@@ -1,0 +1,13 @@
+# core
+pandas>=2.2
+numpy>=1.26
+scikit-learn>=1.4
+requests>=2.32
+python-dotenv>=1.0
+pydantic>=2.8
+fastapi>=0.111
+uvicorn>=0.30
+pyarrow>=17.0
+rich>=13.7
+# optional
+duckdb>=1.0
