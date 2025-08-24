@@ -1,0 +1,52 @@
+# .gitignore - generated to ignore large data files and common Python artifacts
+
+# Ignore data folder (large datasets, models, predictions, etc.)
+data/
+
+# If you want to keep an empty placeholder in data, create data/.gitkeep and
+# uncomment the following line to allow it:
+# !data/.gitkeep
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Common model/artifact files (if created outside data/)
+*.joblib
+*.pkl
+*.parquet
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Pytest cache
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Optional: Git LFS pointer files (if you use LFS)
+# *.bin
