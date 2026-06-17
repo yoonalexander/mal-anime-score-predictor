@@ -11,7 +11,6 @@ from .mal.client import JikanClient
 from .utils.io import RAW, NORMALIZED
 
 DETAILS_DIR = RAW / "details"
-DETAILS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def load_candidates(year_min: Optional[int], year_max: Optional[int]) -> pd.DataFrame:
@@ -58,6 +57,7 @@ def fetch_detail(client: JikanClient, mal_id: int) -> dict | None:
 
     try:
         payload = client.anime(mal_id)  # JikanClient has retries/backoff/cooldown
+        DETAILS_DIR.mkdir(parents=True, exist_ok=True)
         cp.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         return payload
     except Exception as e:

@@ -14,8 +14,10 @@ FEATURES = DATA / "features"
 MODELS = DATA / "models"
 PREDICTIONS = DATA / "predictions"
 
-for p in [DATA, RAW, NORMALIZED, FEATURES, MODELS, PREDICTIONS]:
-    p.mkdir(parents=True, exist_ok=True)
+
+def ensure_data_dirs() -> None:
+    for p in [DATA, RAW, NORMALIZED, FEATURES, MODELS, PREDICTIONS]:
+        p.mkdir(parents=True, exist_ok=True)
 
 
 def save_json(obj: Any, path: Path) -> None:

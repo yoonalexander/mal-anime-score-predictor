@@ -38,7 +38,7 @@ def train_val_test_split(df: pd.DataFrame, cfg: TrainConfig):
     # Create a validation split from the tail of the train years (group by season_key to avoid leakage)
     groups = train["season_key"].fillna("unknown")
     gss = GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
-    train_idx, val_idx = next(gss.split(train, groups=groups, groups=groups))
+    train_idx, val_idx = next(gss.split(train, groups=groups))
     dtrain = train.iloc[train_idx]
     dval = train.iloc[val_idx]
 
