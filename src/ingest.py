@@ -90,6 +90,20 @@ def _append_to_normalized(df_new: pd.DataFrame) -> pd.DataFrame:
     return merged
 
 
+def fetch_season_payload(client: JikanClient, year: int, season: str, source: str) -> tuple[dict, str]:
+    if source == "anilist":
+        return client.anilist_season_all(year, season), "anilist"
+
+    if source == "jikan":
+        return client.season_all(year, season), "jikan"
+
+    try:
+        return client.season_all(year, season), "jikan"
+    except Exception as exc:
+        rprint(f"[yellow]Jikan failed for {year} {season}: {exc}. Trying AniList fallback...[/yellow]")
+        return client.anilist_season_all(year, season), "anilist"
+
+
 def ingest_upcoming():
     """
     Ingest MAL's 'upcoming' list and append it to anime.parquet.
@@ -113,23 +127,28 @@ def ingest_upcoming():
     rprint(f"[green]Appended {len(df)} upcoming rows -> {NORMALIZED / 'anime.parquet'} (total {len(merged)})[/green]")
 
 
-def run_ingest(start_year: int, end_year: int, seasons: List[str]):
+def run_ingest(start_year: int, end_year: int, seasons: List[str], source: str = "auto"):
     """
     Ingest seasons in the given range and append to anime.parquet (no overwrite).
     """
     load_dotenv()
     client = JikanClient()
     all_dfs: list[pd.DataFrame] = []
+    source_mode = source
 
     for year, season in season_iter(start_year, end_year, seasons):
         rprint(f"[cyan]Fetching {year} {season}...[/cyan]")
         season_dir = RAW / f"{year}_{season}"
         season_dir.mkdir(parents=True, exist_ok=True)
         try:
-            payload = client.season_all(year, season)  # all pages w/ retries
-            save_json(payload, season_dir / "season.json")
+            payload, payload_source = fetch_season_payload(client, year, season, source_mode)
+            if source_mode == "auto" and payload_source == "anilist":
+                source_mode = "anilist"
+                rprint("[yellow]Using AniList for the rest of this ingest run.[/yellow]")
+            save_json(payload, season_dir / f"season_{payload_source}.json")
             df = normalize_season_payload(payload, year, season)
             df["season_key"] = df["year"].astype(str) + "_" + df["season"].astype(str)
+            df["source_api"] = payload_source
             all_dfs.append(df)
         except Exception as e:
             rprint(f"[red]Failed {year} {season}: {e}[/red]")
@@ -156,6 +175,12 @@ if __name__ == "__main__":
         help="Seasons to ingest (default: winter spring summer fall)",
     )
     parser.add_argument("--upcoming", action="store_true", help="Ingest upcoming season list")
+    parser.add_argument(
+        "--source",
+        choices=["auto", "jikan", "anilist"],
+        default=os.getenv("INGEST_SOURCE", "auto"),
+        help="Season data source. auto tries Jikan first, then falls back to AniList.",
+    )
     args = parser.parse_args()
 
     if args.upcoming:
@@ -163,4 +188,4 @@ if __name__ == "__main__":
     else:
         if args.start_year is None or args.end_year is None:
             raise SystemExit("When not using --upcoming, you must pass --start-year and --end-year.")
-        run_ingest(args.start_year, args.end_year, [s.lower() for s in args.seasons])
+        run_ingest(args.start_year, args.end_year, [s.lower() for s in args.seasons], args.source)

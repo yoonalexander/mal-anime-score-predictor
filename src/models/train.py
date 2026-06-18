@@ -77,7 +77,7 @@ def run_train():
     def eval_split(X, y, name: str):
         pred = model.predict(X)
         mae = mean_absolute_error(y, pred)
-        rmse = mean_squared_error(y, pred, squared=False)
+        rmse = float(np.sqrt(mean_squared_error(y, pred)))
         rprint(f"[bold]{name}[/bold]  MAE={mae:.3f}  RMSE={rmse:.3f}")
         return mae, rmse
 

@@ -7,6 +7,7 @@ import requests
 from pydantic import BaseModel
 
 JIKAN_BASE = "https://api.jikan.moe/v4"
+ANILIST_BASE = "https://graphql.anilist.co"
 COOLDOWN = float(os.getenv("JIKAN_COOLDOWN", 1.2))
 
 
@@ -58,6 +59,106 @@ class JikanClient:
 
         first["data"] = data
         return first
+
+    def anilist_season_all(self, year: int, season: str) -> Dict[str, Any]:
+        query = """
+        query ($seasonYear: Int!, $season: MediaSeason!, $page: Int!) {
+          Page(page: $page, perPage: 50) {
+            pageInfo {
+              hasNextPage
+            }
+            media(type: ANIME, seasonYear: $seasonYear, season: $season, sort: POPULARITY_DESC) {
+              id
+              idMal
+              title {
+                romaji
+                english
+              }
+              format
+              episodes
+              source
+              description(asHtml: false)
+              popularity
+              favourites
+              averageScore
+              status
+              studios(isMain: true) {
+                nodes {
+                  name
+                }
+              }
+              genres
+            }
+          }
+        }
+        """
+        variables = {"seasonYear": year, "season": season.upper(), "page": 1}
+        data: list[dict[str, Any]] = []
+
+        while True:
+            response = self._post_anilist({"query": query, "variables": variables})
+            payload = response.json()["data"]["Page"]
+            data.extend(self._anilist_to_jikan_item(item, year, season) for item in payload["media"])
+
+            if not payload["pageInfo"]["hasNextPage"]:
+                break
+
+            variables["page"] += 1
+            time.sleep(max(self.cooldown, 2.0))
+
+        return {"data": data, "pagination": {"source": "anilist"}}
+
+    def _post_anilist(self, body: Dict[str, Any]) -> requests.Response:
+        last_error: requests.HTTPError | None = None
+
+        for attempt in range(6):
+            response = self.session.post(ANILIST_BASE, json=body, timeout=30)
+            if response.status_code != 429:
+                response.raise_for_status()
+                time.sleep(max(self.cooldown, 2.0))
+                return response
+
+            last_error = requests.HTTPError(f"429 Client Error for url: {response.url}", response=response)
+            retry_after = response.headers.get("Retry-After")
+            wait = 30.0 * (attempt + 1)
+            if retry_after:
+                try:
+                    wait = max(wait, float(retry_after))
+                except ValueError:
+                    pass
+            time.sleep(wait)
+
+        if last_error is not None:
+            raise last_error
+        raise RuntimeError("Failed to fetch AniList GraphQL response")
+
+    @staticmethod
+    def _anilist_to_jikan_item(item: Dict[str, Any], year: int, season: str) -> Dict[str, Any]:
+        title = item.get("title") or {}
+        score = item.get("averageScore")
+        studios = [{"name": studio.get("name")} for studio in (item.get("studios") or {}).get("nodes", [])]
+        genres = [{"name": name} for name in item.get("genres") or []]
+
+        return {
+            "mal_id": item.get("idMal") or item.get("id"),
+            "title": title.get("english") or title.get("romaji"),
+            "type": item.get("format"),
+            "episodes": item.get("episodes"),
+            "duration": None,
+            "source": item.get("source"),
+            "rating": None,
+            "year": year,
+            "season": season,
+            "synopsis": item.get("description"),
+            "members": item.get("popularity"),
+            "favorites": item.get("favourites"),
+            "score": score / 10 if score is not None else None,
+            "status": item.get("status"),
+            "studios": studios,
+            "demographics": [],
+            "genres": genres,
+            "relations": [],
+        }
 
     # Upcoming season list
     def seasons_upcoming(self) -> Dict[str, Any]:

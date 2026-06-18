@@ -51,7 +51,7 @@ def predict_for_season(year: int, season: str):
     )
 
     model = joblib.load(MODELS / "rf_model.joblib")
-    preds = model.predict(features.values)
+    preds = model.predict(features)
 
     out_df = target[["mal_id", "title", "year", "season"]].copy()
     out_df["pred_score"] = preds
