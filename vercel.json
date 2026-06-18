@@ -1,0 +1,12 @@
+{
+  "framework": "vite",
+  "installCommand": "cd anime-frontend && npm install",
+  "buildCommand": "cd anime-frontend && npm run build",
+  "outputDirectory": "anime-frontend/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

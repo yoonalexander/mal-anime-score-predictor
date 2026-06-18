@@ -2,16 +2,21 @@ import { useEffect, useMemo, useState } from "react";
 import AnimeCard from "./components/AnimeCard";
 import BackgroundParticles from "./components/BackgroundParticles";
 
-// configure your API base via env or default
-const DEFAULT_API_BASE = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000";
+const DEFAULT_API_BASE = import.meta.env.VITE_API_BASE_URL || "";
 
 async function fetchPredictions(apiBase, year, season) {
-  const res = await fetch(`${apiBase}/season/${year}/${season}/predictions`);
+  const normalizedApiBase = apiBase.trim().replace(/\/+$/, "");
+
+  if (!normalizedApiBase) {
+    throw new Error("Set VITE_API_BASE_URL to your deployed FastAPI backend URL.");
+  }
+
+  const res = await fetch(`${normalizedApiBase}/season/${year}/${season}/predictions`);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
 
-// fallback: if backend didn’t send image_url, fetch from Jikan
+// Fallback: if backend does not send image_url, fetch from Jikan.
 async function fetchCoverFor(malId) {
   try {
     const r = await fetch(`https://api.jikan.moe/v4/anime/${malId}`);
@@ -102,7 +107,7 @@ export default function AnimePredictionsApp() {
                 value={apiBase}
                 onChange={(e) => setApiBase(e.target.value)}
                 className="min-w-[320px] rounded-xl border border-input bg-background px-3 py-2 text-sm"
-                placeholder="API base (e.g., http://127.0.0.1:8000)"
+                placeholder="API base URL"
               />
               <input
                 value={year}
@@ -189,7 +194,7 @@ export default function AnimePredictionsApp() {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search title or MAL ID…"
+            placeholder="Search title or MAL ID..."
             className="w-full rounded-2xl border border-input bg-background px-4 py-2.5 text-sm"
           />
           <button
@@ -197,7 +202,7 @@ export default function AnimePredictionsApp() {
             className="whitespace-nowrap rounded-2xl border border-border bg-card px-4 py-2.5 text-sm hover:bg-muted"
             title="Toggle sort"
           >
-            {sortByScore ? "Sorted by score ↓" : "Original order"}
+            {sortByScore ? "Sorted by score down" : "Original order"}
           </button>
         </div>
 

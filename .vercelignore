@@ -1,0 +1,6 @@
+src/
+data/
+requirements.txt
+*.parquet
+*.joblib
+*.pkl
