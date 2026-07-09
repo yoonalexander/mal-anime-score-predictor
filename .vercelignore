@@ -1,6 +1,9 @@
-# Ignore backend/data/model stuff from Vercel frontend deployment.
+# Ignore backend / data / model artifacts from the Vercel frontend deployment.
+# The frontend reads committed static JSON from anime-frontend/public/predictions/,
+# which is NOT ignored here and ships with the build.
 /.env
 /.venv/
+/venv/
 /__pycache__/
 *.pyc
 

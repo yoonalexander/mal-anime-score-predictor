@@ -11,7 +11,29 @@ ANILIST_BASE = "https://graphql.anilist.co"
 COOLDOWN = float(os.getenv("JIKAN_COOLDOWN", 1.2))
 
 
+def pick_image_url(images: Optional[Dict[str, Any]]) -> Optional[str]:
+    """Pick the best available image URL from a Jikan-shaped ``images`` object."""
+    if not images:
+        return None
+    webp = images.get("webp") or {}
+    jpg = images.get("jpg") or {}
+    return (
+        webp.get("large_image_url")
+        or jpg.get("large_image_url")
+        or webp.get("image_url")
+        or jpg.get("image_url")
+        or None
+    )
+
+
 class JikanClient:
+    """Client for Jikan (MyAnimeList) with AniList GraphQL fallback.
+
+    Jikan is preferred (it is the canonical MAL source). When a Jikan season
+    request fails (MAL upstream issues, 429/5xx), we transparently fall back to
+    AniList, which also exposes cover images and the same core metadata.
+    """
+
     def __init__(self, base: str = JIKAN_BASE, cooldown: float = COOLDOWN):
         self.base = base.rstrip("/")
         self.cooldown = cooldown
@@ -31,7 +53,10 @@ class JikanClient:
                 return r.json()
 
             last_error = requests.HTTPError(f"{r.status_code} Server Error for url: {r.url}", response=r)
+            # 504 from Jikan usually means MAL is unreachable upstream; back off harder.
             wait = self.cooldown * (2 ** attempt)
+            if r.status_code in {502, 503, 504}:
+                wait = max(wait, 5.0 * (attempt + 1))
             retry_after = r.headers.get("Retry-After")
             if retry_after:
                 try:
@@ -44,11 +69,14 @@ class JikanClient:
             raise last_error
         raise RuntimeError(f"Failed to fetch {url}")
 
-    # Seasons list (historical)
+    # ------------------------------------------------------------------
+    # Seasons (historical + upcoming)
+    # ------------------------------------------------------------------
     def season(self, year: int, season: str) -> Dict[str, Any]:
         return self.get(f"seasons/{year}/{season}")
 
     def season_all(self, year: int, season: str) -> Dict[str, Any]:
+        """Fetch every page of a Jikan season response."""
         first = self.season(year, season)
         data = list(first.get("data") or [])
         last_page = int((first.get("pagination") or {}).get("last_visible_page") or 1)
@@ -61,6 +89,7 @@ class JikanClient:
         return first
 
     def anilist_season_all(self, year: int, season: str) -> Dict[str, Any]:
+        """Fetch an entire season from AniList, paginated, with cover images."""
         query = """
         query ($seasonYear: Int!, $season: MediaSeason!, $page: Int!) {
           Page(page: $page, perPage: 50) {
@@ -76,18 +105,21 @@ class JikanClient:
               }
               format
               episodes
+              duration
               source
               description(asHtml: false)
               popularity
               favourites
               averageScore
+              meanScore
               status
-              studios(isMain: true) {
-                nodes {
-                  name
-                }
-              }
+              season
+              seasonYear
+              coverImage { extraLarge large medium color }
+              studios(isMain: true) { nodes { name } }
               genres
+              tags { name rank }
+              countryOfOrigin
             }
           }
         }
@@ -134,21 +166,34 @@ class JikanClient:
 
     @staticmethod
     def _anilist_to_jikan_item(item: Dict[str, Any], year: int, season: str) -> Dict[str, Any]:
+        """Map an AniList media node to a Jikan-shaped item (with images)."""
         title = item.get("title") or {}
         score = item.get("averageScore")
         studios = [{"name": studio.get("name")} for studio in (item.get("studios") or {}).get("nodes", [])]
         genres = [{"name": name} for name in item.get("genres") or []]
+        # AniList exposes "tags" which roughly correspond to Jikan "themes".
+        tags = item.get("tags") or []
+        themes = [{"name": t.get("name")} for t in tags if t.get("name")]
+
+        cover = item.get("coverImage") or {}
+        cover_url = cover.get("extraLarge") or cover.get("large") or cover.get("medium")
+        # Shape like Jikan's images block so downstream code is source-agnostic.
+        images = (
+            {"jpg": {"large_image_url": cover_url}, "webp": {"large_image_url": cover_url}}
+            if cover_url
+            else None
+        )
 
         return {
             "mal_id": item.get("idMal") or item.get("id"),
             "title": title.get("english") or title.get("romaji"),
             "type": item.get("format"),
             "episodes": item.get("episodes"),
-            "duration": None,
+            "duration": str(item.get("duration")) if item.get("duration") else None,
             "source": item.get("source"),
             "rating": None,
-            "year": year,
-            "season": season,
+            "year": item.get("seasonYear") or year,
+            "season": (item.get("season") or season).lower(),
             "synopsis": item.get("description"),
             "members": item.get("popularity"),
             "favorites": item.get("favourites"),
@@ -157,14 +202,55 @@ class JikanClient:
             "studios": studios,
             "demographics": [],
             "genres": genres,
+            "themes": themes,
             "relations": [],
+            "images": images,
+            "image_url": cover_url,
         }
 
+    # ------------------------------------------------------------------
     # Upcoming season list
+    # ------------------------------------------------------------------
     def seasons_upcoming(self) -> Dict[str, Any]:
         return self.get("seasons/upcoming")
 
-    # Anime details
+    def anilist_upcoming(self) -> Dict[str, Any]:
+        """Best-effort AniList fallback for the 'upcoming' schedule.
+
+        AniList has no single 'upcoming' endpoint, so we query the next two
+        calendar seasons and let the caller normalize them.
+        """
+        from datetime import datetime
+
+        SEASONS = ["winter", "spring", "summer", "fall"]
+        now = datetime.utcnow()
+        idx = (now.month - 1) // 3  # 0..3
+        s1 = SEASONS[idx]
+        y1 = now.year
+        s2 = SEASONS[(idx + 1) % 4]
+        y2 = y1 + (1 if (idx + 1) >= 4 else 0)
+
+        data: list[dict[str, Any]] = []
+        for y, s in [(y1, s1), (y2, s2)]:
+            try:
+                payload = self.anilist_season_all(y, s)
+                data.extend(payload.get("data") or [])
+            except Exception:
+                continue
+        # Dedup by mal_id
+        seen = set()
+        unique = []
+        for d in data:
+            mid = d.get("mal_id")
+            if mid is None or mid in seen:
+                continue
+            seen.add(mid)
+            unique.append(d)
+        return {"data": unique, "pagination": {"source": "anilist"}}
+
+    # ------------------------------------------------------------------
+    # Anime details (used for label backfill)
+    # ------------------------------------------------------------------
     def anime(self, mal_id: int) -> Dict[str, Any]:
         return self.get(f"anime/{mal_id}/full")
 
@@ -188,4 +274,7 @@ class AnimeItem(BaseModel):
     studios: list[dict] | None = None
     demographics: list[dict] | None = None
     genres: list[dict] | None = None
+    themes: list[dict] | None = None
     relations: list[dict] | None = None
+    images: dict | None = None
+    image_url: str | None = None

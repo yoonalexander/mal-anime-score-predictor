@@ -9,5 +9,8 @@ fastapi>=0.111
 uvicorn>=0.30
 pyarrow>=17.0
 rich>=13.7
+joblib>=1.4
+# gradient boosting model (optional but used if installed)
+lightgbm>=4.0
 # optional
 duckdb>=1.0

@@ -22,6 +22,7 @@ ENV/
 .env
 .env.local
 .env.*.local
+!.env.example
 
 # Packaging
 build/
@@ -32,6 +33,10 @@ dist/
 *.joblib
 *.pkl
 *.parquet
+
+# IMPORTANT: the frontend prediction JSON under anime-frontend/public/ is the
+# ONLY data artifact that ships to production. Never ignore it.
+!anime-frontend/public/predictions/*.json
 
 # IDEs and OS
 .vscode/
