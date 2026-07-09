@@ -1,0 +1,16 @@
+[
+  {
+    "year": 2026,
+    "season": "summer",
+    "label": "Summer 2026",
+    "file": "2026-summer.json",
+    "count": 106
+  },
+  {
+    "year": 2025,
+    "season": "fall",
+    "label": "Fall 2025",
+    "file": "2025-fall.json",
+    "count": 124
+  }
+]
