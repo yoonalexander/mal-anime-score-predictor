@@ -36,32 +36,62 @@ def _season_filename(year: int, season: str) -> str:
     return f"{year}-{season.lower()}.json"
 
 
+def _clean(value):
+    """Coerce pandas NaN/NaT to None so json.dumps emits valid JSON null.
+
+    Python's json.dumps writes the literal ``NaN`` by default, which is NOT valid
+    JSON and throws under JavaScript's JSON.parse(). Any float NaN, float('nan'),
+    or pandas NA/NaT must become None.
+    """
+    if value is None:
+        return None
+    try:
+        if pd.isna(value):
+            return None
+    except (TypeError, ValueError):
+        pass
+    return value
+
+
 def row_to_frontend_obj(row) -> dict:
     """Map one prediction row to the JSON shape the frontend expects."""
-    score = float(row.pred_score) if pd.notna(row.pred_score) else None
-    pred_low = float(row.pred_low) if "pred_low" in row._asdict() and pd.notna(row.pred_low) else None
-    pred_high = float(row.pred_high) if "pred_high" in row._asdict() and pd.notna(row.pred_high) else None
+    fields = row._asdict()
+    score = _clean(fields.get("pred_score"))
+    pred_low = _clean(fields.get("pred_low"))
+    pred_high = _clean(fields.get("pred_high"))
+    episodes = _clean(fields.get("episodes"))
+
+    genres_list = _clean(fields.get("genres_list"))
+    themes_list = _clean(fields.get("themes_list"))
+
+    def _to_list(v):
+        if v is None:
+            return []
+        try:
+            return [str(x) for x in list(v)]
+        except TypeError:
+            return [str(v)]
 
     return {
         "mal_id": int(row.mal_id),
-        "title": row.title,
-        "year": int(row.year) if pd.notna(row.year) else None,
-        "season": str(row.season),
-        "pred_score": round(score, 2) if score is not None else None,
-        "pred_low": round(pred_low, 2) if pred_low is not None else None,
-        "pred_high": round(pred_high, 2) if pred_high is not None else None,
-        "image_url": getattr(row, "image_url", None),
-        "genres": list(row.genres_list) if "genres_list" in row._asdict() and row.genres_list is not None else [],
-        "themes": list(row.themes_list) if "themes_list" in row._asdict() and row.themes_list is not None else [],
-        "studio": getattr(row, "studio", "") or "",
-        "source": getattr(row, "source", None),
-        "type": getattr(row, "type", None),
-        "episodes": int(row.episodes) if "episodes" in row._asdict() and pd.notna(row.episodes) else None,
-        "rating": getattr(row, "rating", None),
-        "status": getattr(row, "status", None),
-        "synopsis": getattr(row, "synopsis", None),
-        "mal_url": getattr(row, "mal_url", None)
-        or (f"https://myanimelist.net/anime/{int(row.mal_id)}" if pd.notna(row.mal_id) else None),
+        "title": _clean(row.title) or "",
+        "year": int(row.year) if _clean(row.year) is not None else None,
+        "season": str(_clean(row.season) or ""),
+        "pred_score": round(float(score), 2) if score is not None else None,
+        "pred_low": round(float(pred_low), 2) if pred_low is not None else None,
+        "pred_high": round(float(pred_high), 2) if pred_high is not None else None,
+        "image_url": _clean(fields.get("image_url")),
+        "genres": _to_list(genres_list),
+        "themes": _to_list(themes_list),
+        "studio": _clean(fields.get("studio")) or "",
+        "source": _clean(fields.get("source")),
+        "type": _clean(fields.get("type")),
+        "episodes": int(episodes) if episodes is not None else None,
+        "rating": _clean(fields.get("rating")),
+        "status": _clean(fields.get("status")),
+        "synopsis": _clean(fields.get("synopsis")),
+        "mal_url": _clean(fields.get("mal_url"))
+        or (f"https://myanimelist.net/anime/{int(row.mal_id)}" if _clean(row.mal_id) is not None else None),
     }
 
 
@@ -93,7 +123,9 @@ def export_one(parquet_path: Path) -> Optional[dict]:
 
     FRONTEND_PRED_DIR.mkdir(parents=True, exist_ok=True)
     out_path = FRONTEND_PRED_DIR / _season_filename(year, season)
-    out_path.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
+    out_path.write_text(
+        json.dumps(items, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8"
+    )
     rprint(f"[green]Wrote {len(items)} items -> {out_path}[/green]")
 
     return {
@@ -110,7 +142,7 @@ def write_index(entries: list[dict]) -> None:
     entries = sorted(entries, key=lambda e: (e["year"], {"winter": 0, "spring": 1, "summer": 2, "fall": 3}.get(e["season"], 4)), reverse=True)
     FRONTEND_PRED_DIR.mkdir(parents=True, exist_ok=True)
     (FRONTEND_PRED_DIR / "index.json").write_text(
-        json.dumps(entries, ensure_ascii=False, indent=2), encoding="utf-8"
+        json.dumps(entries, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8"
     )
     rprint(f"[green]Wrote index -> {FRONTEND_PRED_DIR / 'index.json'} ({len(entries)} seasons)[/green]")
 
