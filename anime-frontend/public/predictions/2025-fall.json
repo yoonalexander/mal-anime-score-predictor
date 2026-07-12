@@ -7,7 +7,7 @@
     "pred_score": 8.12,
     "pred_low": 7.63,
     "pred_high": 8.61,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Drama",
@@ -31,7 +31,7 @@
     "pred_score": 8.1,
     "pred_low": 7.61,
     "pred_high": 8.59,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy",
@@ -59,7 +59,7 @@
     "pred_score": 8.08,
     "pred_low": 7.59,
     "pred_high": 8.57,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy",
@@ -84,7 +84,7 @@
     "pred_score": 7.99,
     "pred_low": 7.5,
     "pred_high": 8.48,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Adventure",
       "Drama",
@@ -110,7 +110,7 @@
     "pred_score": 7.96,
     "pred_low": 7.47,
     "pred_high": 8.45,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy",
@@ -134,7 +134,7 @@
     "pred_score": 7.82,
     "pred_low": 7.33,
     "pred_high": 8.31,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Romance",
@@ -159,7 +159,7 @@
     "pred_score": 7.76,
     "pred_low": 7.27,
     "pred_high": 8.25,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Music"
@@ -182,7 +182,7 @@
     "pred_score": 7.66,
     "pred_low": 7.17,
     "pred_high": 8.15,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy",
@@ -207,7 +207,7 @@
     "pred_score": 7.62,
     "pred_low": 7.13,
     "pred_high": 8.12,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Drama",
@@ -232,7 +232,7 @@
     "pred_score": 7.62,
     "pred_low": 7.13,
     "pred_high": 8.11,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -254,7 +254,7 @@
     "pred_score": 7.58,
     "pred_low": 7.09,
     "pred_high": 8.07,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Romance",
@@ -278,7 +278,7 @@
     "pred_score": 7.53,
     "pred_low": 7.04,
     "pred_high": 8.02,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Romance",
@@ -302,7 +302,7 @@
     "pred_score": 7.52,
     "pred_low": 7.03,
     "pred_high": 8.01,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Psychological",
@@ -327,7 +327,7 @@
     "pred_score": 7.45,
     "pred_low": 6.96,
     "pred_high": 7.94,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy",
@@ -352,7 +352,7 @@
     "pred_score": 7.44,
     "pred_low": 6.95,
     "pred_high": 7.93,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy",
@@ -378,7 +378,7 @@
     "pred_score": 7.44,
     "pred_low": 6.95,
     "pred_high": 7.93,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure"
@@ -401,7 +401,7 @@
     "pred_score": 7.42,
     "pred_low": 6.93,
     "pred_high": 7.91,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Music",
@@ -425,7 +425,7 @@
     "pred_score": 7.35,
     "pred_low": 6.86,
     "pred_high": 7.84,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama"
     ],
@@ -447,7 +447,7 @@
     "pred_score": 7.27,
     "pred_low": 6.78,
     "pred_high": 7.76,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Adventure",
       "Comedy",
@@ -471,7 +471,7 @@
     "pred_score": 7.27,
     "pred_low": 6.78,
     "pred_high": 7.76,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Mystery",
@@ -496,7 +496,7 @@
     "pred_score": 7.26,
     "pred_low": 6.77,
     "pred_high": 7.75,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Adventure",
       "Comedy",
@@ -522,7 +522,7 @@
     "pred_score": 7.25,
     "pred_low": 6.76,
     "pred_high": 7.74,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Fantasy",
@@ -546,7 +546,7 @@
     "pred_score": 7.22,
     "pred_low": 6.73,
     "pred_high": 7.71,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Slice of Life"
@@ -569,7 +569,7 @@
     "pred_score": 7.2,
     "pred_low": 6.71,
     "pred_high": 7.69,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure",
@@ -595,7 +595,7 @@
     "pred_score": 7.18,
     "pred_low": 6.69,
     "pred_high": 7.67,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Slice of Life"
@@ -618,7 +618,7 @@
     "pred_score": 7.16,
     "pred_low": 6.67,
     "pred_high": 7.65,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Slice of Life",
@@ -642,7 +642,7 @@
     "pred_score": 7.13,
     "pred_low": 6.64,
     "pred_high": 7.62,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Music",
       "Slice of Life"
@@ -665,7 +665,7 @@
     "pred_score": 7.12,
     "pred_low": 6.62,
     "pred_high": 7.61,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Music"
     ],
@@ -687,7 +687,7 @@
     "pred_score": 7.1,
     "pred_low": 6.61,
     "pred_high": 7.59,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure",
@@ -713,7 +713,7 @@
     "pred_score": 7.1,
     "pred_low": 6.61,
     "pred_high": 7.59,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy",
@@ -738,7 +738,7 @@
     "pred_score": 7.1,
     "pred_low": 6.61,
     "pred_high": 7.59,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Mystery"
@@ -761,7 +761,7 @@
     "pred_score": 7.06,
     "pred_low": 6.57,
     "pred_high": 7.55,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Romance",
@@ -786,7 +786,7 @@
     "pred_score": 7.05,
     "pred_low": 6.56,
     "pred_high": 7.54,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Music",
@@ -810,7 +810,7 @@
     "pred_score": 7.03,
     "pred_low": 6.54,
     "pred_high": 7.52,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -832,7 +832,7 @@
     "pred_score": 7.03,
     "pred_low": 6.54,
     "pred_high": 7.52,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy"
@@ -855,7 +855,7 @@
     "pred_score": 7.03,
     "pred_low": 6.54,
     "pred_high": 7.51,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Romance",
@@ -879,7 +879,7 @@
     "pred_score": 7.0,
     "pred_low": 6.51,
     "pred_high": 7.49,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Sports"
@@ -902,7 +902,7 @@
     "pred_score": 7.0,
     "pred_low": 6.51,
     "pred_high": 7.49,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Horror",
@@ -928,7 +928,7 @@
     "pred_score": 6.99,
     "pred_low": 6.5,
     "pred_high": 7.48,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action"
     ],
@@ -950,7 +950,7 @@
     "pred_score": 6.98,
     "pred_low": 6.49,
     "pred_high": 7.47,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure",
@@ -974,7 +974,7 @@
     "pred_score": 6.96,
     "pred_low": 6.47,
     "pred_high": 7.46,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Fantasy",
       "Romance"
@@ -997,7 +997,7 @@
     "pred_score": 6.95,
     "pred_low": 6.46,
     "pred_high": 7.44,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure",
@@ -1021,7 +1021,7 @@
     "pred_score": 6.94,
     "pred_low": 6.45,
     "pred_high": 7.43,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy"
     ],
@@ -1043,7 +1043,7 @@
     "pred_score": 6.92,
     "pred_low": 6.43,
     "pred_high": 7.41,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Adventure",
       "Fantasy",
@@ -1067,7 +1067,7 @@
     "pred_score": 6.92,
     "pred_low": 6.43,
     "pred_high": 7.41,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Sports"
@@ -1090,7 +1090,7 @@
     "pred_score": 6.9,
     "pred_low": 6.41,
     "pred_high": 7.39,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [],
     "themes": [],
     "studio": "Studio Gallop",
@@ -1110,7 +1110,7 @@
     "pred_score": 6.89,
     "pred_low": 6.4,
     "pred_high": 7.38,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure",
@@ -1135,7 +1135,7 @@
     "pred_score": 6.87,
     "pred_low": 6.38,
     "pred_high": 7.36,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Adventure",
       "Sci-Fi",
@@ -1159,7 +1159,7 @@
     "pred_score": 6.78,
     "pred_low": 6.29,
     "pred_high": 7.27,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Romance"
@@ -1182,7 +1182,7 @@
     "pred_score": 6.77,
     "pred_low": 6.28,
     "pred_high": 7.26,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Drama",
@@ -1206,7 +1206,7 @@
     "pred_score": 6.74,
     "pred_low": 6.25,
     "pred_high": 7.23,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Fantasy",
       "Mystery"
@@ -1229,7 +1229,7 @@
     "pred_score": 6.74,
     "pred_low": 6.25,
     "pred_high": 7.23,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Drama",
@@ -1255,7 +1255,7 @@
     "pred_score": 6.73,
     "pred_low": 6.24,
     "pred_high": 7.22,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Drama",
@@ -1280,7 +1280,7 @@
     "pred_score": 6.72,
     "pred_low": 6.23,
     "pred_high": 7.21,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure",
@@ -1304,7 +1304,7 @@
     "pred_score": 6.7,
     "pred_low": 6.21,
     "pred_high": 7.19,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -1326,7 +1326,7 @@
     "pred_score": 6.7,
     "pred_low": 6.21,
     "pred_high": 7.19,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Romance"
@@ -1349,7 +1349,7 @@
     "pred_score": 6.67,
     "pred_low": 6.18,
     "pred_high": 7.16,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure",
@@ -1373,7 +1373,7 @@
     "pred_score": 6.64,
     "pred_low": 6.15,
     "pred_high": 7.13,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Adventure",
       "Comedy",
@@ -1398,7 +1398,7 @@
     "pred_score": 6.63,
     "pred_low": 6.14,
     "pred_high": 7.12,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Romance"
     ],
@@ -1420,7 +1420,7 @@
     "pred_score": 6.61,
     "pred_low": 6.12,
     "pred_high": 7.1,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Slice of Life"
     ],
@@ -1442,7 +1442,7 @@
     "pred_score": 6.61,
     "pred_low": 6.12,
     "pred_high": 7.1,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure",
@@ -1466,7 +1466,7 @@
     "pred_score": 6.59,
     "pred_low": 6.1,
     "pred_high": 7.08,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy"
     ],
@@ -1488,7 +1488,7 @@
     "pred_score": 6.58,
     "pred_low": 6.09,
     "pred_high": 7.07,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Fantasy",
       "Slice of Life"
@@ -1511,7 +1511,7 @@
     "pred_score": 6.57,
     "pred_low": 6.08,
     "pred_high": 7.06,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Fantasy",
@@ -1535,7 +1535,7 @@
     "pred_score": 6.56,
     "pred_low": 6.07,
     "pred_high": 7.05,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Fantasy",
       "Romance"
@@ -1558,7 +1558,7 @@
     "pred_score": 6.56,
     "pred_low": 6.07,
     "pred_high": 7.05,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -1580,7 +1580,7 @@
     "pred_score": 6.54,
     "pred_low": 6.05,
     "pred_high": 7.03,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Music"
     ],
@@ -1602,7 +1602,7 @@
     "pred_score": 6.53,
     "pred_low": 6.04,
     "pred_high": 7.02,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy"
     ],
@@ -1624,7 +1624,7 @@
     "pred_score": 6.49,
     "pred_low": 6.0,
     "pred_high": 6.98,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Fantasy"
@@ -1647,7 +1647,7 @@
     "pred_score": 6.48,
     "pred_low": 5.99,
     "pred_high": 6.97,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Music",
@@ -1671,7 +1671,7 @@
     "pred_score": 6.47,
     "pred_low": 5.99,
     "pred_high": 6.96,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -1693,7 +1693,7 @@
     "pred_score": 6.44,
     "pred_low": 5.95,
     "pred_high": 6.93,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Slice of Life"
@@ -1716,7 +1716,7 @@
     "pred_score": 6.44,
     "pred_low": 5.95,
     "pred_high": 6.93,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy"
     ],
@@ -1738,7 +1738,7 @@
     "pred_score": 6.42,
     "pred_low": 5.93,
     "pred_high": 6.91,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama",
       "Sci-Fi"
@@ -1761,7 +1761,7 @@
     "pred_score": 6.42,
     "pred_low": 5.93,
     "pred_high": 6.91,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -1783,7 +1783,7 @@
     "pred_score": 6.42,
     "pred_low": 5.93,
     "pred_high": 6.91,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -1805,7 +1805,7 @@
     "pred_score": 6.42,
     "pred_low": 5.93,
     "pred_high": 6.91,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -1827,7 +1827,7 @@
     "pred_score": 6.39,
     "pred_low": 5.9,
     "pred_high": 6.88,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Sci-Fi"
@@ -1850,7 +1850,7 @@
     "pred_score": 6.38,
     "pred_low": 5.89,
     "pred_high": 6.87,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -1872,7 +1872,7 @@
     "pred_score": 6.37,
     "pred_low": 5.88,
     "pred_high": 6.86,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Slice of Life"
     ],
@@ -1894,7 +1894,7 @@
     "pred_score": 6.35,
     "pred_low": 5.86,
     "pred_high": 6.84,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Sci-Fi",
@@ -1918,7 +1918,7 @@
     "pred_score": 6.31,
     "pred_low": 5.82,
     "pred_high": 6.8,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Mahou Shoujo",
       "Music"
@@ -1941,7 +1941,7 @@
     "pred_score": 6.3,
     "pred_low": 5.81,
     "pred_high": 6.79,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Adventure",
       "Fantasy"
@@ -1964,7 +1964,7 @@
     "pred_score": 6.3,
     "pred_low": 5.81,
     "pred_high": 6.79,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -1986,7 +1986,7 @@
     "pred_score": 6.29,
     "pred_low": 5.8,
     "pred_high": 6.79,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure",
@@ -2011,7 +2011,7 @@
     "pred_score": 6.29,
     "pred_low": 5.8,
     "pred_high": 6.78,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy",
@@ -2035,7 +2035,7 @@
     "pred_score": 6.29,
     "pred_low": 5.8,
     "pred_high": 6.78,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy"
     ],
@@ -2057,7 +2057,7 @@
     "pred_score": 6.27,
     "pred_low": 5.78,
     "pred_high": 6.76,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Adventure",
@@ -2081,7 +2081,7 @@
     "pred_score": 6.22,
     "pred_low": 5.73,
     "pred_high": 6.71,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Romance",
@@ -2105,7 +2105,7 @@
     "pred_score": 6.2,
     "pred_low": 5.71,
     "pred_high": 6.69,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -2127,7 +2127,7 @@
     "pred_score": 6.15,
     "pred_low": 5.66,
     "pred_high": 6.64,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Fantasy"
     ],
@@ -2149,7 +2149,7 @@
     "pred_score": 6.15,
     "pred_low": 5.66,
     "pred_high": 6.64,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -2160,7 +2160,7 @@
     "episodes": null,
     "rating": null,
     "status": "RELEASING",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/62145"
   },
   {
@@ -2171,7 +2171,7 @@
     "pred_score": 6.14,
     "pred_low": 5.66,
     "pred_high": 6.63,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -2193,7 +2193,7 @@
     "pred_score": 6.12,
     "pred_low": 5.63,
     "pred_high": 6.61,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy"
@@ -2216,7 +2216,7 @@
     "pred_score": 6.04,
     "pred_low": 5.55,
     "pred_high": 6.53,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Ecchi",
@@ -2241,7 +2241,7 @@
     "pred_score": 6.01,
     "pred_low": 5.53,
     "pred_high": 6.5,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Drama"
@@ -2264,7 +2264,7 @@
     "pred_score": 6.01,
     "pred_low": 5.52,
     "pred_high": 6.5,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Fantasy",
@@ -2288,7 +2288,7 @@
     "pred_score": 6.01,
     "pred_low": 5.52,
     "pred_high": 6.5,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Romance"
     ],
@@ -2310,7 +2310,7 @@
     "pred_score": 5.99,
     "pred_low": 5.5,
     "pred_high": 6.48,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Fantasy",
       "Romance"
@@ -2333,7 +2333,7 @@
     "pred_score": 5.95,
     "pred_low": 5.46,
     "pred_high": 6.43,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -2344,7 +2344,7 @@
     "episodes": 1,
     "rating": null,
     "status": "FINISHED",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/201975"
   },
   {
@@ -2355,7 +2355,7 @@
     "pred_score": 5.92,
     "pred_low": 5.43,
     "pred_high": 6.41,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -2366,7 +2366,7 @@
     "episodes": 1,
     "rating": null,
     "status": "FINISHED",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/201974"
   },
   {
@@ -2377,7 +2377,7 @@
     "pred_score": 5.9,
     "pred_low": 5.41,
     "pred_high": 6.39,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -2388,7 +2388,7 @@
     "episodes": null,
     "rating": null,
     "status": "RELEASING",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/62369"
   },
   {
@@ -2399,7 +2399,7 @@
     "pred_score": 5.89,
     "pred_low": 5.4,
     "pred_high": 6.38,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Music"
@@ -2422,7 +2422,7 @@
     "pred_score": 5.88,
     "pred_low": 5.39,
     "pred_high": 6.37,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Sports"
@@ -2445,7 +2445,7 @@
     "pred_score": 5.87,
     "pred_low": 5.38,
     "pred_high": 6.36,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Mystery"
     ],
@@ -2467,7 +2467,7 @@
     "pred_score": 5.85,
     "pred_low": 5.36,
     "pred_high": 6.34,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Slice of Life"
     ],
@@ -2489,7 +2489,7 @@
     "pred_score": 5.83,
     "pred_low": 5.34,
     "pred_high": 6.32,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Mecha",
@@ -2513,7 +2513,7 @@
     "pred_score": 5.83,
     "pred_low": 5.34,
     "pred_high": 6.32,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Romance",
@@ -2526,7 +2526,7 @@
     "episodes": 8,
     "rating": null,
     "status": "FINISHED",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/201151"
   },
   {
@@ -2537,7 +2537,7 @@
     "pred_score": 5.8,
     "pred_low": 5.31,
     "pred_high": 6.29,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Drama"
     ],
@@ -2559,7 +2559,7 @@
     "pred_score": 5.72,
     "pred_low": 5.23,
     "pred_high": 6.21,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [],
     "themes": [],
     "studio": "Aquastar",
@@ -2579,7 +2579,7 @@
     "pred_score": 5.69,
     "pred_low": 5.2,
     "pred_high": 6.18,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Hentai"
     ],
@@ -2590,7 +2590,7 @@
     "episodes": null,
     "rating": null,
     "status": "RELEASING",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/62578"
   },
   {
@@ -2601,7 +2601,7 @@
     "pred_score": 5.67,
     "pred_low": 5.18,
     "pred_high": 6.16,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Ecchi",
@@ -2626,7 +2626,7 @@
     "pred_score": 5.67,
     "pred_low": 5.18,
     "pred_high": 6.16,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Action",
       "Comedy"
@@ -2649,7 +2649,7 @@
     "pred_score": 5.64,
     "pred_low": 5.15,
     "pred_high": 6.13,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Slice of Life"
     ],
@@ -2671,7 +2671,7 @@
     "pred_score": 5.48,
     "pred_low": 4.99,
     "pred_high": 5.97,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Romance"
@@ -2694,13 +2694,13 @@
     "pred_score": 5.42,
     "pred_low": 4.93,
     "pred_high": 5.91,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Fantasy"
     ],
     "themes": [],
     "studio": "Nippon Animation",
-    "source": NaN,
+    "source": null,
     "type": "ONA",
     "episodes": 1,
     "rating": null,
@@ -2716,7 +2716,7 @@
     "pred_score": 5.34,
     "pred_low": 4.85,
     "pred_high": 5.83,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy"
     ],
@@ -2738,7 +2738,7 @@
     "pred_score": 5.33,
     "pred_low": 4.84,
     "pred_high": 5.82,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Ecchi"
     ],
@@ -2749,7 +2749,7 @@
     "episodes": 4,
     "rating": null,
     "status": "FINISHED",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/63046"
   },
   {
@@ -2760,7 +2760,7 @@
     "pred_score": 5.31,
     "pred_low": 4.82,
     "pred_high": 5.8,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [],
     "themes": [],
     "studio": "MAPPA",
@@ -2780,7 +2780,7 @@
     "pred_score": 5.21,
     "pred_low": 4.72,
     "pred_high": 5.71,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Fantasy",
       "Slice of Life"
@@ -2792,7 +2792,7 @@
     "episodes": 12,
     "rating": null,
     "status": "FINISHED",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/62504"
   },
   {
@@ -2803,7 +2803,7 @@
     "pred_score": 5.21,
     "pred_low": 4.72,
     "pred_high": 5.7,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Fantasy",
@@ -2827,7 +2827,7 @@
     "pred_score": 5.16,
     "pred_low": 4.67,
     "pred_high": 5.65,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Slice of Life"
     ],
@@ -2849,7 +2849,7 @@
     "pred_score": 5.13,
     "pred_low": 4.64,
     "pred_high": 5.62,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Comedy",
       "Slice of Life"
@@ -2872,7 +2872,7 @@
     "pred_score": 5.08,
     "pred_low": 4.59,
     "pred_high": 5.57,
-    "image_url": NaN,
+    "image_url": null,
     "genres": [
       "Slice of Life"
     ],

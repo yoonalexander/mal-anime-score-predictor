@@ -2493,7 +2493,7 @@
     "episodes": null,
     "rating": null,
     "status": "NOT_YET_RELEASED",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/64404"
   },
   {
@@ -2742,7 +2742,7 @@
     "episodes": null,
     "rating": null,
     "status": "RELEASING",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/64378"
   },
   {
@@ -2941,7 +2941,7 @@
       "LGBTQ+ Themes"
     ],
     "studio": "OUTLINE",
-    "source": NaN,
+    "source": null,
     "type": "MOVIE",
     "episodes": 1,
     "rating": null,
@@ -2968,7 +2968,7 @@
     "episodes": null,
     "rating": null,
     "status": "NOT_YET_RELEASED",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/64291"
   },
   {
@@ -3254,7 +3254,7 @@
     "episodes": null,
     "rating": null,
     "status": "RELEASING",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/64210"
   },
   {
@@ -3276,7 +3276,7 @@
     "episodes": null,
     "rating": null,
     "status": "NOT_YET_RELEASED",
-    "synopsis": NaN,
+    "synopsis": null,
     "mal_url": "https://myanimelist.net/anime/63641"
   },
   {
